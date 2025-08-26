@@ -1,24 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from 'react';
 
 function App() {
-  const [products, setProducts] = useState([]);
+  const [message, setMessage] = useState('');
 
   useEffect(() => {
-    fetch("https://demo-fullstack-deploy-980f.onrender.com") // <-- change to your backend URL
-      .then((res) => res.json())
-      .then((data) => setProducts(data));
+    // Make sure to use the correct URL for your backend on Render
+    // On Render, this would be your backend service URL
+    fetch('http://localhost:5000/api/message') // In production, this would be your Render backend URL
+      .then(response => response.json())
+      .then(data => setMessage(data.message))
+      .catch(error => console.error('Error fetching message:', error));
   }, []);
 
   return (
-    <div style={{ textAlign: "center" }}>
-      <h1>Adaraa Fashion Store 👗</h1>
-      <ul>
-        {products.map((p) => (
-          <li key={p.id}>
-            {p.name} - ${p.price}
-          </li>
-        ))}
-      </ul>
+    <div style={{ padding: '20px', fontFamily: 'sans-serif' }}>
+      <h1>Full-Stack Deployment Demo</h1>
+      <p>Message from the backend server:</p>
+      <p style={{ fontWeight: 'bold', color: 'blue' }}>{message ? message : 'Loading...'}</p>
+      <p>This frontend is deployed on Netlify.</p>
     </div>
   );
 }
