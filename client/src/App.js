@@ -6,7 +6,7 @@ function App() {
   useEffect(() => {
     // Make sure to use the correct URL for your backend on Render
     // On Render, this would be your backend service URL
-  fetch('https://demo-fullstack-deploy-980f.onrender.com/api/message')// In production, this would be your Render backend URL
+  fetch('https://demo-fullstack-deploy-thjd.onrender.com/api/message')// In production, this would be your Render backend URL
       .then(response => response.json())
       .then(data => setMessage(data.message))
       .catch(error => console.error('Error fetching message:', error));
