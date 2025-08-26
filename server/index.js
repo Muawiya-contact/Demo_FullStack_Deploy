@@ -1,25 +1,22 @@
-import express from "express";
-import cors from "cors";
+const express = require('express');
+const cors = require('cors');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
+// Use cors middleware to allow requests from our frontend
 app.use(cors());
-app.use(express.json());
 
-// Simple test route
-app.get("/", (req, res) => {
-  res.json({ message: "Hello from Backend 🚀" });
+// Define a simple API endpoint
+app.get('/api/message', (req, res) => {
+  res.json({ message: 'Hello from the backend server!' });
 });
 
-// Example API route
-app.get("/api/products", (req, res) => {
-  res.json([
-    { id: 1, name: "T-shirt", price: 25 },
-    { id: 2, name: "Shoes", price: 60 },
-  ]);
+// A simple root endpoint for Render's health check
+app.get('/', (req, res) => {
+    res.send('Backend is running.');
 });
 
 app.listen(PORT, () => {
-  console.log(`✅ Backend running on port ${PORT}`);
+  console.log(`Server is running on http://localhost:${PORT}`);
 });
