@@ -22,15 +22,15 @@ const MessageSchema = new mongoose.Schema({
 const Message = mongoose.model('Message', MessageSchema);
 
 // Initial data (to be added once)
-// async function addInitialMessage() {
-//   const existingMessage = await Message.findOne();
-//   if (!existingMessage) {
-//     const newMessage = new Message({ text: 'Hello from the MongoDB database!' });
-//     await newMessage.save();
-//     console.log('Initial message added to database.');
-//   }
-// }
-// addInitialMessage();
+async function addInitialMessage() {
+  const existingMessage = await Message.findOne();
+  if (!existingMessage) {
+    const newMessage = new Message({ text: 'Hello from the MongoDB database!' });
+    await newMessage.save();
+    console.log('Initial message added to database.');
+  }
+}
+addInitialMessage();
 
 // Define the API endpoint to fetch data from the database
 app.get('/api/message', async (req, res) => {
