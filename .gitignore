@@ -1,0 +1,12 @@
+# Ignore Node.js module directories
+node_modules/
+client/node_modules/
+server/node_modules/
+
+# Ignore production build artifacts
+client/build/
+
+# Ignore environment variable files
+.env
+client/.env.local  # If using create-react-app with local env variables
+server/.env
