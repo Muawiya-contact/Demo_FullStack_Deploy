@@ -9,7 +9,7 @@ app.use(cors());
 
 // Define a simple API endpoint
 app.get('/api/message', (req, res) => {
-  res.json({ message: 'Hello from the backend server!' });
+  res.json({ message: 'Hello! from the backend server!' });
 });
 
 // A simple root endpoint for Render's health check
